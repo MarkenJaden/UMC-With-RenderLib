@@ -8,16 +8,35 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.wynprice.cursemaven" version "2.1.1"
+}
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    shade("io.gitlab.friedrichlp:renderlib:1.0.0-pre2") {
+        exclude group: "*"
+    }
+}
+
 apply plugin: 'cam72cam.universalmodcore'
 apply plugin: 'maven'
 
 String version = '0.0.1'
 
 universalmodcore {
-    modPackage = 'org.example'
-    modClass = 'ExampleMod'
-    modName = 'Example Mod'
-    modId = 'examplemod'
+    modPackage = 'net.landofrails'
+    modClass = 'UMCWithRenderLib'
+    modName = 'UMC With RenderLib'
+    modId = 'umcwithrenderlib'
     modVersion = version
     umcVersion = '1.0.1'
 }
