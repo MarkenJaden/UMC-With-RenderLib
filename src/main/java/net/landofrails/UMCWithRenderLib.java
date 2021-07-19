@@ -6,7 +6,6 @@ import cam72cam.mod.math.Vec3d;
 import cam72cam.mod.render.BlockRender;
 import cam72cam.mod.render.ItemRender;
 import cam72cam.mod.resource.Identifier;
-import friedrichlp.renderlib.RenderLibSettings;
 import friedrichlp.renderlib.model.ModelLoaderProperty;
 import friedrichlp.renderlib.tracking.ModelInfo;
 import friedrichlp.renderlib.tracking.ModelManager;
@@ -17,8 +16,6 @@ import net.landofrails.render.TestBlockRender;
 import net.landofrails.tile.TestBlockTile;
 import net.landofrails.utils.IdentifierFileContainer;
 import net.landofrails.utils.RenderLibInit;
-
-import java.io.File;
 
 public class UMCWithRenderLib extends ModCore.Mod {
 
@@ -35,10 +32,6 @@ public class UMCWithRenderLib extends ModCore.Mod {
     public void commonEvent(ModEvent event) {
         switch (event) {
             case CONSTRUCT:
-
-                File cacheLoc = new File("./cache/renderlib");
-                RenderLibSettings.Caching.CACHE_LOCATION = cacheLoc.getAbsolutePath();
-                RenderLibSettings.Caching.CACHE_VERSION = "1";
 
                 RenderLibInit.initRenderLib();
 
